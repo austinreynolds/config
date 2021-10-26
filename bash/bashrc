@@ -118,3 +118,5 @@ fi
 
 # My aliases
 alias tt='tree -a'
+alias ll='ls -l'
+alias lal='ls -al'
