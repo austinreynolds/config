@@ -1,6 +1,10 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SHELL STUFF:
-set shell=zsh\ -i
+"This kinda ruined my evening. I even forgot the point of
+"setting shell here is, but commenting it out un-screwed Vim-Plug
+"on Neovim 0.6.0
+"set shell=zsh
+"set shellcmdflag=-l
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -66,10 +70,11 @@ let mapleader = " "
 " Create line above/below (O/o) from normal mode.
 nnoremap <leader>o mpo<esc>`p
 nnoremap <leader>O mpO<esc>`p
-nnoremap <leader>] <Esc>:source ~/.vimrc<Enter>
+nnoremap <leader>] :e ~/.vimrc<Enter>
 " Set G to go to end of last line, rather than any column of last line
 nnoremap gg goto 1 
 nnoremap G <C-End> 
+
 " tryna get a fast window split going, needs work
 "nnoremap <leader>ss <C-w>s<C-j><C-v> 
 
@@ -77,9 +82,21 @@ nnoremap G <C-End>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGINS:
 
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'gruvbox-community/gruvbox'
+Plug 'preservim/nerdtree'
+
+" git
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'airblade/vim-gitgutter'
 
 " fzf 
 "    https://github.com/junegunn/fzf.vim
@@ -88,20 +105,7 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" telecope
-"    https://github.com/nvim-telescope/telescope.nvim
-"Plug 'nvim-lua/popup.nvim'
-"Plug 'nvim-lua/plenary.nvim'
-"Plug 'nvim-telescope/telescope.nvim'
-
 call plug#end()
-
-
-"""""""""""""""""""""""""""""""""""""""
-" PLUGIN GRAVEYARD:
-"Plug 'tpope/vim-fugitive'
-"Plug 'tpope/vim-dadbod'
-"Plug 'tpope/vim-surround'
 
 
 """""""""""""""""""""""""""""""""""""""
@@ -118,6 +122,10 @@ nnoremap <leader>b :Buffers<Enter>
 nnoremap <leader>gr :Rg! 
 " https://www.erickpatrick.net/blog/adding-syntax-highlighting-to-fzf.vim-preview-window
 let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
+
+" NERDTree
+nnoremap <leader>nn :NERDTreeToggle<Enter>
+nnoremap <leader>nf :NERDTreeFind<CR>
 
 " in the works
 "lua require'lspconfig'.pyright.setup{on_attach=require'completion'.on_attach}
