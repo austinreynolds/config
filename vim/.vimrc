@@ -116,8 +116,8 @@ colorscheme gruvbox
 "nnoremap <leader>ff <cmd>Telescope find_files<cr>
 
 " fzf
-nnoremap <leader>ff :Files!<Enter>
-nnoremap <leader>fg :GFiles!<Enter>
+nnoremap <leader>ff :Files<Enter>
+nnoremap <leader>fg :GFiles<Enter>
 nnoremap <leader>b :Buffers<Enter>
 nnoremap <leader>gr :Rg! 
 " https://www.erickpatrick.net/blog/adding-syntax-highlighting-to-fzf.vim-preview-window
