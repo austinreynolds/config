@@ -70,7 +70,9 @@ let mapleader = " "
 " Create line above/below (O/o) from normal mode.
 nnoremap <leader>o mpo<esc>`p
 nnoremap <leader>O mpO<esc>`p
+nnoremap <leader>l 0v$
 nnoremap <leader>] :e ~/.vimrc<Enter>
+nnoremap <leader>\ :source ~/.vimrc<Enter>
 " Set G to go to end of last line, rather than any column of last line
 nnoremap gg goto 1 
 nnoremap G <C-End> 
@@ -135,24 +137,7 @@ nnoremap <leader>nf :NERDTreeFind<CR>
 " EXPERIMENTAL:
 ab yolo swaggalicious
 
-" Wrap visual selection in an single quotes.
-vmap <Leader>w <Esc>:call VisualSingleQuoteWrap()<CR>
-function! VisualSingleQuoteWrap()
-  let quotechar = "'"
-  normal `>
-  if &selection == 'exclusive'
-      exe "normal i quotechar"
-  else
-      exe "normal i ".quotechar.""
-  endif
-  normal `<
-  exe "normal i".quotechar.""
-  normal `<
-endfunction
-
-
-vmap <Leader>g <Esc>:call GetVisualSelection()<CR>
-function! GetVisualSelection()
+function! GetVisualSelection(indic_return_list)
     " Why is this not a built-in Vim script function?!
     let [line_start, column_start] = getpos("'<")[1:2]
     let [line_end, column_end] = getpos("'>")[1:2]
@@ -162,6 +147,27 @@ function! GetVisualSelection()
     endif
     let lines[-1] = lines[-1][: column_end - (&selection == 'inclusive' ? 1 : 2)]
     let lines[0] = lines[0][column_start - 1:]
-    return join(lines, "\n")
+    if a:indic_return_list == 0
+        return join(lines, "\n")
+    endif
+    return lines
 endfunction
 
+function! RunSelectedQuery()
+    let selected_query = GetVisualSelection(0)
+    silent !clear
+    execute "!python3 $CONFIG_HOME/bin/query_postgres.py \"" . selected_query . "\""
+endfunction
+
+function! PutSelectedQuery()
+    let selected_query = GetVisualSelection(0)
+    execute "normal! mz"
+    "silent !clear
+    let query_res = system("python3 $CONFIG_HOME/bin/query_postgres.py \"" . selected_query . "\"")
+    execute "normal! o" . query_res . "\<Esc>kmx"
+    execute "normal! `zo/*\<esc>"
+    execute "normal! `xA*/\<esc>j"
+endfunction
+
+vnoremap <Leader>se <Esc>:call RunSelectedQuery()<CR>
+vnoremap <Leader>sr <Esc>:call PutSelectedQuery()<CR>
