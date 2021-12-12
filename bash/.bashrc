@@ -116,7 +116,15 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# My aliases
+# My stuff
+export CONFIG_HOME=$HOME/config
+export DEV_HOME=$HOME/dev
+export DBT_HOME=$DEV_HOME/sharadar_analytics
+export VISUAL=nvim
+
+alias vim=nvim
 alias tt='tree -a'
 alias ll='ls -l'
 alias lal='ls -al'
+
+# neofetch
