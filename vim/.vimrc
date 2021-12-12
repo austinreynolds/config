@@ -76,6 +76,8 @@ nnoremap <leader>\ :source ~/.vimrc<Enter>
 " Set G to go to end of last line, rather than any column of last line
 nnoremap gg goto 1 
 nnoremap G <C-End> 
+" save out
+nnoremap <leader>w :w<Enter>
 
 " tryna get a fast window split going, needs work
 "nnoremap <leader>ss <C-w>s<C-j><C-v> 
@@ -94,6 +96,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'gruvbox-community/gruvbox'
 Plug 'preservim/nerdtree'
+Plug 'tpope/vim-commentary'
 
 " git
 Plug 'tpope/vim-fugitive'
@@ -113,15 +116,14 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""
 " PLUGIN CONFIG:
 colorscheme gruvbox
-
-" telescope
-"nnoremap <leader>ff <cmd>Telescope find_files<cr>
+vnoremap <leader>/ :Commentary<Enter>
+nnoremap <leader>/ :Commentary<Enter>
 
 " fzf
 nnoremap <leader>ff :Files<Enter>
 nnoremap <leader>fg :GFiles<Enter>
 nnoremap <leader>b :Buffers<Enter>
-nnoremap <leader>gr :Rg! 
+nnoremap <leader>ft :Rg 
 " https://www.erickpatrick.net/blog/adding-syntax-highlighting-to-fzf.vim-preview-window
 let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
 
@@ -129,8 +131,6 @@ let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --ma
 nnoremap <leader>nn :NERDTreeToggle<Enter>
 nnoremap <leader>nf :NERDTreeFind<CR>
 
-" in the works
-"lua require'lspconfig'.pyright.setup{on_attach=require'completion'.on_attach}
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
