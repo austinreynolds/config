@@ -119,7 +119,7 @@ fi
 # My stuff
 export CONFIG_HOME=$HOME/config
 export DEV_HOME=$HOME/dev
-export DBT_HOME=$DEV_HOME/sharadar_analytics
+export DBT_HOME=$DEV_HOME/sharadar_analytics/dbt
 export VISUAL=nvim
 
 alias vim=nvim

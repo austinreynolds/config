@@ -96,6 +96,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'gruvbox-community/gruvbox'
 Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-commentary'
 
 " git
@@ -115,6 +116,7 @@ call plug#end()
 
 """""""""""""""""""""""""""""""""""""""
 " PLUGIN CONFIG:
+let NERDTreeShowHidden=1
 colorscheme gruvbox
 vnoremap <leader>/ :Commentary<Enter>
 nnoremap <leader>/ :Commentary<Enter>
