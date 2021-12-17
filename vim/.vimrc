@@ -42,7 +42,8 @@ set nobackup
 set undodir=~/.vim/undo  " must be created by hand!
 set undofile
 set hidden  "hides buffer when abandoned, rather than unloading  
-set clipboard=unnamed  "use system clipboard as default register
+" set clipboard=unnamed  "use system clipboard as default register
+set clipboard^=unnamed,unnamedplus
 filetype plugin on
 set path +=**  " during file search, recurse down directories 
 set wildmenu  " display all matching files when we tab complete
