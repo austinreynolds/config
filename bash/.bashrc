@@ -125,9 +125,11 @@ export VISUAL=nvim
 alias vi=nvim
 alias vim=nvim
 alias tat='tree -a'
-alias ll='ls -lFh'
-alias lal='ls -alFh'
+alias ls='ls -Fh --color'
+alias ll='ls -Fhl'
+alias lal='ls -Fhla'
 alias ssh_data='ssh ar@192.168.1.158'
+alias git_going="git add *; git commit -m 'auto-commit'; git push"
 
 set -o ignoreeof
 
