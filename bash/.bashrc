@@ -122,9 +122,13 @@ export DEV_HOME=$HOME/dev
 export DBT_HOME=$DEV_HOME/sharadar_analytics/dbt
 export VISUAL=nvim
 
+alias vi=nvim
 alias vim=nvim
-alias tt='tree -a'
-alias ll='ls -l'
-alias lal='ls -al'
+alias tat='tree -a'
+alias ll='ls -lFh'
+alias lal='ls -alFh'
+alias ssh_data='ssh ar@192.168.1.158'
+
+set -o ignoreeof
 
 # neofetch
