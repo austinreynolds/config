@@ -74,6 +74,7 @@ nnoremap <leader>O mpO<esc>`p
 nnoremap <leader>l 0v$
 nnoremap <leader>] :e ~/.vimrc<Enter>
 nnoremap <leader>\ :source ~/.vimrc<Enter>
+nnoremap <leader>sc :source %<Enter>
 " Set G to go to end of last line, rather than any column of last line
 nnoremap gg goto 1 
 nnoremap G <C-End> 
@@ -95,44 +96,44 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'gruvbox-community/gruvbox'
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tpope/vim-commentary'
+"Plug 'gruvbox-community/gruvbox'
+"Plug 'preservim/nerdtree'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'tpope/vim-commentary'
 
-" git
-Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
-Plug 'airblade/vim-gitgutter'
+"" git
+"Plug 'tpope/vim-fugitive'
+"Plug 'vim-airline/vim-airline'
+"Plug 'airblade/vim-gitgutter'
 
-" fzf 
-"    https://github.com/junegunn/fzf.vim
-"    preview colors: brew install bat
-"    fulltext search: brew install ripgrep
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+"" fzf 
+""    https://github.com/junegunn/fzf.vim
+""    preview colors: brew install bat
+""    fulltext search: brew install ripgrep
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
 
-"""""""""""""""""""""""""""""""""""""""
-" PLUGIN CONFIG:
-let NERDTreeShowHidden=1
-colorscheme gruvbox
-vnoremap <leader>/ :Commentary<Enter>
-nnoremap <leader>/ :Commentary<Enter>
+""""""""""""""""""""""""""""""""""""""""
+"" PLUGIN CONFIG:
+"let NERDTreeShowHidden=1
+"colorscheme gruvbox
+"vnoremap <leader>/ :Commentary<Enter>
+"nnoremap <leader>/ :Commentary<Enter>
 
-" fzf
-nnoremap <leader>ff :Files<Enter>
-nnoremap <leader>fg :GFiles<Enter>
-nnoremap <leader>b :Buffers<Enter>
-nnoremap <leader>ft :Rg 
-" https://www.erickpatrick.net/blog/adding-syntax-highlighting-to-fzf.vim-preview-window
-let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
+"" fzf
+"nnoremap <leader>ff :Files<Enter>
+"nnoremap <leader>fg :GFiles<Enter>
+"nnoremap <leader>b :Buffers<Enter>
+"nnoremap <leader>ft :Rg 
+"" https://www.erickpatrick.net/blog/adding-syntax-highlighting-to-fzf.vim-preview-window
+"let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
 
-" NERDTree
-nnoremap <leader>nn :NERDTreeToggle<Enter>
-nnoremap <leader>nf :NERDTreeFind<CR>
+"" NERDTree
+"nnoremap <leader>nn :NERDTreeToggle<Enter>
+"nnoremap <leader>nf :NERDTreeFind<CR>
 
 
 
