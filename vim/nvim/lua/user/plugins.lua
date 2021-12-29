@@ -42,17 +42,35 @@ packer.init {
   },
 }
 
--- Install your plugins here
+-- Plugin selection
 return packer.startup(function(use)
-  -- My plugins here
-  use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+    use "wbthomason/packer.nvim" -- Have packer manage itself
+    use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
+    use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+    use 'gruvbox-community/gruvbox'
+    use 'preservim/nerdtree'
+    use 'Xuyuanp/nerdtree-git-plugin'
+    use 'tpope/vim-commentary'
 
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
+    -- git
+	use 'tpope/vim-fugitive'
+	use 'vim-airline/vim-airline'
+	use 'airblade/vim-gitgutter'
+
+    -- fzf 
+    -- https://github.com/junegunn/fzf.vim
+    -- preview colors: brew install bat
+    -- fulltext search: brew install ripgrep
+	use 'junegunn/fzf'
+	use 'junegunn/fzf.vim'
+
+
+
+  -- Auto set up your config after cloning packer.nvim (put after plugins)
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
 end)
 
+-- Plugin config
+-- vim.cmd "let NERDTreeShowHidden=1"
