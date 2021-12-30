@@ -45,6 +45,8 @@ packer.init {
 -- Plugin selection
 return packer.startup(function(use)
     use "wbthomason/packer.nvim" -- Have packer manage itself
+
+    -- misc
     use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
     use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
     use 'gruvbox-community/gruvbox'
@@ -57,14 +59,28 @@ return packer.startup(function(use)
 	use 'vim-airline/vim-airline'
 	use 'airblade/vim-gitgutter'
 
-    -- fzf 
-    -- https://github.com/junegunn/fzf.vim
+    -- Search:
+    -- fzf: https://github.com/junegunn/fzf.vim
     -- preview colors: brew install bat
     -- fulltext search: brew install ripgrep
 	use 'junegunn/fzf'
 	use 'junegunn/fzf.vim'
 
+    -- Completion: cmp plugins
+    use "hrsh7th/nvim-cmp" -- The completion plugin
+    use "hrsh7th/cmp-buffer" -- buffer completions
+    use "hrsh7th/cmp-path" -- path completions
+    use "hrsh7th/cmp-cmdline" -- cmdline completions
+    use "saadparwaiz1/cmp_luasnip" -- snippet completions
+    -- snippet engine
+    use "L3MON4D3/LuaSnip" --snippet engine
+    use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
+    -- LSP
+    use "neovim/nvim-lspconfig" -- enable LSP; basically a language pack for common servers
+    use "williamboman/nvim-lsp-installer" -- EZ language server installer
+    use "hrsh7th/cmp-nvim-lsp"  -- Let cmp tap into the LSP completion goodness
+    use "hrsh7th/cmp-nvim-lua"  -- Let cmp help with nvim config completions
 
   -- Auto set up your config after cloning packer.nvim (put after plugins)
   if PACKER_BOOTSTRAP then
