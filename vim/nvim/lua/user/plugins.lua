@@ -58,6 +58,7 @@ return packer.startup(function(use)
 	use 'tpope/vim-fugitive'
 	use 'vim-airline/vim-airline'
 	use 'airblade/vim-gitgutter'
+    use 'kdheepak/lazygit.nvim'
 
     -- Search:
     -- fzf: https://github.com/junegunn/fzf.vim
@@ -81,6 +82,11 @@ return packer.startup(function(use)
     use "williamboman/nvim-lsp-installer" -- EZ language server installer
     use "hrsh7th/cmp-nvim-lsp"  -- Let cmp tap into the LSP completion goodness
     use "hrsh7th/cmp-nvim-lua"  -- Let cmp help with nvim config completions
+
+    -- TreeSitter
+    use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
+    use "p00f/nvim-ts-rainbow" -- rainbow parintheses
+    use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
 
   -- Auto set up your config after cloning packer.nvim (put after plugins)
   if PACKER_BOOTSTRAP then

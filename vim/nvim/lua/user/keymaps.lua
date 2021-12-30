@@ -32,8 +32,8 @@ keymap("n", "<leader>o", "mpo<esc>`p", opts)
 keymap("n", "<leader>O", "mpO<esc>`p", opts)
 -- keymap("n", "<leader>l", "0v$", opts)   -- use V command instead
 keymap("n", "<leader>sc", ":source %<cr>", opts)
-keymap("n", "gg", "goto 1", opts)
-keymap("n", "g", "<c-end><c-end>", opts)
+keymap("n", "gg", ":goto 1<cr>", opts)
+keymap("n", "G", "<c-end><c-end>", opts)
 keymap("n", "<leader>w", ":w<cr>", opts)
 
 -- Resize with arrows
@@ -58,3 +58,24 @@ keymap("v", ">", ">gv", opts)
 keymap("v", "p", '"_dP', opts)  -- When pasting over, don't yank the thing replaced
 
 
+-- PLUGINS --
+-- NERDTree
+vim.cmd "let NERDTreeShowHidden=1"
+keymap("n", "<leader>nn", ":NERDTreeToggle<cr>", opts)
+keymap("n", "<leader>nf", ":NERDTreeFind<cr>", opts)
+
+-- Commentary
+keymap("n", "<leader>/", ":Commentary<cr>", opts)
+keymap("v", "<leader>/", ":Commentary<cr>", opts)
+
+
+-- fzf/ripgrep
+keymap("n", "<leader>ff", ":Files!<cr>", opts)
+keymap("n", "<leader>fg", ":GFiles<cr>", opts)
+keymap("n", "<leader>b", ":Buffers<cr>", opts)
+keymap("n", "<leader>ft", ":Rg<cr>", opts)
+-- https://www.erickpatrick.net/blog/adding-syntax-highlighting-to-fzf.vim-preview-window
+vim.cmd [[let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview 'bat --color=always --style=header,grid --line-range :300 {}'"]]
+
+-- lazygit
+keymap("n", "<leader>gg", ":LazyGit<cr>", opts)
