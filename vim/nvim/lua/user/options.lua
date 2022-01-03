@@ -17,30 +17,30 @@ local options = {
     smartindent = true,
     wrap = false,
     nu = true,  -- line numbers
-    relativenumber = true,
+    relativenumber = false,
     scrolloff = 8,
     signcolumn = "yes",
-    
+
     -- Files and backups
     swapfile = false,  -- gonna use undo directory instead of backups/swap,
     backup = false,
-    undodir = "~/.vim/undo",  -- must be created by hand!
+    undodir = "/home/ar/vim/undo",  -- must be created by hand!
     undofile = true,
-    hidden = true, -- hides buffer when abandoned, rather than unloading  
+    hidden = true, -- hides buffer when abandoned, rather than unloading
     clipboard = {"unnamed", "unnamedplus"},
-    
+
     -- Search
     incsearch = true,
     ignorecase = true,
     smartcase = true,  -- search becomes case-sens once UC letter is incl
     hlsearch = false, -- highlight all matches on previous search pattern
-    
+
     -- Misc
     compatible = false,
     errorbells = false,
     updatetime = 50,  -- time waiting for command completion (default 4000ms = 4s)
     cmdheight = 2,  -- Give more space for displaying messages
-    
+
     -- Suggestions from https://github.com/LunarVim/Neovim-from-scratch/blob/01-options/lua/user/options.lua
     -- https://www.youtube.com/watch?v=hY5-Q6NxQgY&list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ&index=2
     completeopt = { "menuone", "noselect" }, -- mostly just for cmp
