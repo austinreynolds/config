@@ -33,7 +33,7 @@ keymap("n", "<leader>O", "mpO<esc>`p", opts)
 -- keymap("n", "<leader>l", "0v$", opts)   -- use V command instead
 keymap("n", "<leader>sc", ":source %<cr>", opts)
 keymap("n", "gg", ":goto 1<cr>", opts)
-keymap("n", "G", "<c-end><c-end>", opts)
+keymap("n", "GG", "<c-end><c-end>", opts)
 keymap("n", "<leader>w", ":w<cr>", opts)
 
 -- Resize with arrows
