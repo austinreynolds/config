@@ -24,9 +24,9 @@ local options = {
     -- Files and backups
     swapfile = false,  -- gonna use undo directory instead of backups/swap,
     backup = false,
-    undodir = "~/.vim/undo",  -- must be created by hand!
+    undodir = "/home/ar/vim/undo",  -- must be created by hand!
     undofile = true,
-    hidden = true, -- hides buffer when abandoned, rather than unloading  
+    hidden = true, -- hides buffer when abandoned, rather than unloading
     clipboard = {"unnamed", "unnamedplus"},
 
     -- Search
