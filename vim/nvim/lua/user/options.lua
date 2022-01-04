@@ -24,7 +24,7 @@ local options = {
     -- Files and backups
     swapfile = false,  -- gonna use undo directory instead of backups/swap,
     backup = false,
-    undodir = "/home/ar/vim/undo",  -- must be created by hand!
+    undodir = "/Users/ar/vim/undo",  -- must be created by hand!
     undofile = true,
     hidden = true, -- hides buffer when abandoned, rather than unloading
     clipboard = {"unnamed", "unnamedplus"},
@@ -67,5 +67,6 @@ end
 
 vim.opt.shortmess:append "c"
 vim.cmd "highlight ColorColumn ctermbg=0 guibg=grey"
+vim.cmd "highlight cursorline ctermbg=8 guibg=grey"
 -- vim.cmd "set whichwrap+=<,>,[,],h,l"
 -- vim.cmd [[set iskeyword+=-]]

@@ -53,6 +53,7 @@ return packer.startup(function(use)
     use 'preservim/nerdtree'
     use 'Xuyuanp/nerdtree-git-plugin'
     use 'tpope/vim-commentary'
+    use 'qpkorr/vim-bufkill'
 
     -- git
 	use 'tpope/vim-fugitive'
