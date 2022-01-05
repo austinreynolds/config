@@ -24,7 +24,7 @@ local options = {
     -- Files and backups
     swapfile = false,  -- gonna use undo directory instead of backups/swap,
     backup = false,
-    undodir = "/Users/ar/vim/undo",  -- must be created by hand!
+    undodir = os.getenv("HOME") .. "/vim/undo",
     undofile = true,
     hidden = true, -- hides buffer when abandoned, rather than unloading
     clipboard = {"unnamed", "unnamedplus"},
@@ -53,7 +53,7 @@ local options = {
     splitbelow = true,                       -- force all horizontal splits to go below current window
     splitright = true,                       -- force all vertical splits to go to the right of current window
     -- termguicolors = true,                    -- set term gui colors (most terminals support this)
-    timeoutlen = 1000,                       -- time to wait for a mapped sequence to complete (in milliseconds)
+    timeoutlen = 200,                       -- time to wait for a mapped sequence to complete (in milliseconds)
     writebackup = false,                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
     cursorline = true,                       -- highlight the current line
     numberwidth = 4,                         -- set number column width to 2 {default 4}
